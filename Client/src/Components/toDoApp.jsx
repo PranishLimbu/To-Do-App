@@ -41,10 +41,20 @@ const saveEdit=(isToEdit)=>{
         if(task.id===idToEdit){
             return {
                 ...task,
-                text:
-            }
+                text:editText,
+                lastModified: new Date().toLocaleDateString()
+
+            };
         }
-    })
+        return task;
+    });
+    setTasks(updatedTasks);
+    setEditingId(null);
+    setEditText('');
+};
+const cancelEdit=()=>{
+    setEditingId(null);
+    setEditText('');
 }
 
 
